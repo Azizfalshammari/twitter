@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import UserService from '../Services/UserService';
-import { toast } from 'react-toastify';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import UserService from "../Services/UserService";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
-  const [credential, setCredential] = useState('');
-  const [password, setPassword] = useState('');
+  const [credential, setCredential] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       const response = await UserService.loginUser({ credential, password });
-      localStorage.setItem('userId', response.data.id);
-      toast.success('Login successful!');
+      localStorage.setItem("userId", response.user.id);
+      toast.success("Login successful!");
       setTimeout(() => {
-        navigate('/feed');
+        navigate("/feed");
       }, 3000);
     } catch (error) {
-      console.error('Error logging in', error);
-      toast.error('Login failed, please check your credentials and try again.');
+      console.error("Error logging in", error);
+      toast.error("Login failed, please check your credentials and try again.");
     }
   };
 
