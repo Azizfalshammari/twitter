@@ -1,0 +1,1 @@
+let XAccountPageImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/X_icon_2.svg/1483px-X_icon_2.svg.png'
